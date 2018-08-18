@@ -47,8 +47,12 @@ describe('Slots', () => {
       expect(slots.getRealTime).toBeFunction()
     })
 
-    it('return return real time', () => {
+    it('should return a known real time given a known input', () => {
       expect(slots.getRealTime(10)).toBe(1490101210000)
+    })
+
+    it('should return some non-zero real time from the current time', () => {
+      expect(slots.getRealTime()).not.toBe(0);
     })
   })
 
