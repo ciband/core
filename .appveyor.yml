@@ -20,4 +20,5 @@ test_script:
   #- npm test
   - yarn global add lerna
   - lerna bootstrap
+  - ./node_modules/.bin/cross-env ARK_ENV=test ./node_modules/.bin/jest
   
