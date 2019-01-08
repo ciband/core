@@ -20,6 +20,6 @@ test_script:
   #- npm test
   - yarn global add lerna
   - lerna bootstrap
-  - mkdir -p $HOME/.ark/database
+  - md -Path $HOME/.ark/database
   - ./node_modules/.bin/cross-env ARK_ENV=test ./node_modules/.bin/jest
   
