@@ -16,6 +16,6 @@ test_script:
   - npm --version
   # run tests
   #- npm test
-  yarn global add lerna
-  lerna bootstrap
+  - yarn global add lerna
+  - lerna bootstrap
   
