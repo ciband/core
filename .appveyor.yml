@@ -1,5 +1,5 @@
 # Test against the latest version of this Node.js version
-build: Xcript
+build: off
 
 environment:
   nodejs_version: "10"
