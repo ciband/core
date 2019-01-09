@@ -21,5 +21,11 @@ test_script:
   - yarn global add lerna
   - lerna bootstrap
   - mkdir %HOME%\.ark\database
-  - .\node_modules\.bin\cross-env ARK_ENV=test .\node_modules\.bin\jest .\packagescore-webhooks\ .\packages\core-transaction-pool-mem\ .\packages\core-test-utils\ .\packages\core-p2p\ .\packages\core-json-rpc\ .\packages\core-forger\ .\packages\core-error-tracker-bugsnag\ .\packages\core-debugger-cli\ .\packages\core-container\ .\packages\core-api\ --detectOpenHandles --runInBand --forceExit --ci --coverage
+  - .\node_modules\.bin\cross-env ARK_ENV=test .\node_modules\.bin\jest ^
+    .\packagescore-webhooks\ .\packages\core-transaction-pool-mem\ ^
+    .\packages\core-test-utils\ .\packages\core-p2p\ ^
+    .\packages\core-json-rpc\ .\packages\core-forger\ ^
+    .\packages\core-error-tracker-bugsnag\ .\packages\core-debugger-cli\ ^
+    .\packages\core-container\ .\packages\core-api\ ^
+    --detectOpenHandles --runInBand --forceExit --ci --coverage
   
