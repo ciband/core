@@ -3,6 +3,9 @@ build: off
 
 environment:
   nodejs_version: "10"
+  
+services:
+  - postgresql101
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -21,5 +24,9 @@ test_script:
   - yarn global add lerna
   - lerna bootstrap
   - mkdir %HOME%\.ark\database
+  - SET PGUSER=ark
+  - SET PGPASSWORD=password
+  - PATH=C:\Program Files\PostgreSQL\9.6\bin\;%PATH%
+  - createdb ark_development
   - ./node_modules/.bin/cross-env ARK_ENV=test ./node_modules/.bin/jest ./packagescore-webhooks/ ./packages/core-transaction-pool-mem/ ./packages/core-test-utils/ ./packages/core-p2p/ ./packages/core-json-rpc/ ./packages/core-forger/ ./packages/core-error-tracker-bugsnag/ ./packages/core-debugger-cli/ ./packages/core-container/ ./packages/core-api/ --detectOpenHandles --runInBand --forceExit --ci --coverage
   
