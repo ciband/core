@@ -14,6 +14,11 @@ install:
   # install modules
   - npm install yarn -g
 
+before_test:  
+    - mkdir %HOME%\.ark\database
+    - psql -c "CREATE DATABASE ark_development;" -U postgres
+    - psql -c "CREATE USER ark WITH PASSWORD 'password';" -U postgres
+
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
@@ -22,11 +27,6 @@ test_script:
   # run tests
   #- npm test
   - yarn global add lerna
-  - lerna bootstrap
-  - mkdir %HOME%\.ark\database
-  #- SET PGUSER=ark
- # - SET PGPASSWORD=password
-  - PATH=C:\Program Files\PostgreSQL\10\bin\;%PATH%
-  - createdb ark_development
+  - lerna bootstrap 
   - ./node_modules/.bin/cross-env ARK_ENV=test ./node_modules/.bin/jest ./packagescore-webhooks/ ./packages/core-transaction-pool-mem/ ./packages/core-test-utils/ ./packages/core-p2p/ ./packages/core-json-rpc/ ./packages/core-forger/ ./packages/core-error-tracker-bugsnag/ ./packages/core-debugger-cli/ ./packages/core-container/ ./packages/core-api/ --detectOpenHandles --runInBand --forceExit --ci --coverage
   
