@@ -1,3 +1,5 @@
 ignore:
-  - "packages/core-tester-cli/**/*"
-  - "packages/**/lib/index"
+    - "packages/**/src/defaults.ts"
+    - "packages/**/src/index.ts"
+    - "packages/**/src/plugin.ts"
+    - "packages/core-interfaces"

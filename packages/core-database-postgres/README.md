@@ -1,7 +1,7 @@
-# Ark Core - Database - Postgres
+# ARK Core - Database - Postgres
 
 <p align="center">
-    <img src="../../banner.png?sanitize=true" />
+    <img src="https://raw.githubusercontent.com/ARKEcosystem/core/master/banner.png" />
 </p>
 
 ## Documentation
@@ -14,9 +14,8 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## Credits
 
-- [Brian Faust](https://github.com/faustbrian)
-- [All Contributors](../../../../contributors)
+This project exists thanks to all the people who [contribute](../../../../contributors).
 
 ## License
 
-[MIT](LICENSE) © [ArkEcosystem](https://ark.io)
+[MIT](LICENSE) © [ARK Ecosystem](https://ark.io)

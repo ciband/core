@@ -1,48 +1,61 @@
 {
-  "name": "@arkecosystem/core-api",
-  "description": "Public API for Ark Core",
-  "version": "0.2.14",
-  "contributors": [
-    "Kristjan Košič <kristjan@ark.io>",
-    "Brian Faust <brian@ark.io>"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "cross-env ARK_ENV=test jest --runInBand --detectOpenHandles",
-    "test:coverage": "cross-env ARK_ENV=test jest --coverage --coveragePathIgnorePatterns='/(defaults.js|index.js)$' --runInBand --detectOpenHandles",
-    "test:debug": "cross-env ARK_ENV=test node --inspect-brk ../../node_modules/.bin/jest --runInBand",
-    "test:watch": "cross-env ARK_ENV=test jest --runInBand --watch",
-    "test:watch:all": "cross-env ARK_ENV=test jest --runInBand --watchAll",
-    "lint": "eslint ./ --fix"
-  },
-  "dependencies": {
-    "@arkecosystem/core-container": "~0.2",
-    "@arkecosystem/core-http-utils": "~0.2",
-    "@arkecosystem/core-transaction-pool": "~0.2",
-    "@arkecosystem/core-utils": "~0.2",
-    "@arkecosystem/crypto": "~0.2",
-    "ajv": "^6.5.5",
-    "boom": "^7.3.0",
-    "bs58check": "^2.1.2",
-    "dayjs-ext": "^2.2.0",
-    "hapi-api-version": "^2.1.0",
-    "hapi-pagination": "https://github.com/faustbrian/hapi-pagination",
-    "hapi-rate-limit": "^3.0.0",
-    "ip": "^1.1.5",
-    "joi": "^14.3.0",
-    "lodash": "^4.17.11",
-    "lodash.orderby": "^4.6.0",
-    "lodash.snakecase": "^4.1.1"
-  },
-  "devDependencies": {
-    "@arkecosystem/core-test-utils": "~0.2",
-    "axios": "^0.18.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=10.x"
-  }
+    "name": "@arkecosystem/core-api",
+    "version": "2.5.0-next.10",
+    "description": "Public API for ARK Core",
+    "license": "MIT",
+    "contributors": [
+        "Kristjan Košič <kristjan@ark.io>",
+        "Brian Faust <brian@ark.io>"
+    ],
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index",
+    "types": "dist/index",
+    "scripts": {
+        "build": "yarn clean && yarn compile",
+        "build:watch": "yarn clean && yarn compile -w",
+        "clean": "del dist",
+        "compile": "../../node_modules/typescript/bin/tsc",
+        "prepublishOnly": "yarn build",
+        "pretest": "bash ../../scripts/pre-test.sh"
+    },
+    "dependencies": {
+        "@arkecosystem/core-container": "^2.5.0-next.10",
+        "@arkecosystem/core-http-utils": "^2.5.0-next.10",
+        "@arkecosystem/core-interfaces": "^2.5.0-next.10",
+        "@arkecosystem/core-transaction-pool": "^2.5.0-next.10",
+        "@arkecosystem/core-transactions": "^2.5.0-next.10",
+        "@arkecosystem/core-utils": "^2.5.0-next.10",
+        "@arkecosystem/crypto": "^2.5.0-next.10",
+        "@arkecosystem/utils": "^0.3.0",
+        "@hapi/boom": "^7.4.2",
+        "@hapi/joi": "^15.1.0",
+        "ajv": "^6.10.2",
+        "dayjs": "^1.8.15",
+        "hapi-pagination": "https://github.com/faustbrian/hapi-pagination#f4991348ca779b68b8e7139cfcbc601e6d496612",
+        "hapi-rate-limit": "^4.0.0",
+        "ip": "^1.1.5",
+        "lodash.groupby": "^4.6.0",
+        "lodash.orderby": "^4.6.0",
+        "lodash.partition": "^4.6.0",
+        "lodash.snakecase": "^4.1.1",
+        "semver": "^6.2.0"
+    },
+    "devDependencies": {
+        "@types/hapi__boom": "^7.4.0",
+        "@types/hapi__joi": "^15.0.2",
+        "@types/ip": "^1.1.0",
+        "@types/lodash.groupby": "^4.6.6",
+        "@types/lodash.orderby": "^4.6.6",
+        "@types/lodash.partition": "^4.6.6",
+        "@types/lodash.snakecase": "^4.1.6",
+        "@types/semver": "^6.0.1"
+    },
+    "engines": {
+        "node": ">=10.x"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }

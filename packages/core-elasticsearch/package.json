@@ -1,35 +1,42 @@
 {
-  "name": "@arkecosystem/core-elasticsearch",
-  "description": "A powerful Elasticsearch integration for Ark Core",
-  "version": "0.1.0",
-  "contributors": [
-    "Brian Faust <brian@ark.io>"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "cross-env ARK_ENV=test jest --runInBand --detectOpenHandles",
-    "test:coverage": "cross-env ARK_ENV=test jest --coverage --coveragePathIgnorePatterns='/(defaults.js|index.js)$' --runInBand --detectOpenHandles",
-    "test:debug": "cross-env ARK_ENV=test node --inspect-brk ../../node_modules/.bin/jest --runInBand",
-    "test:watch": "cross-env ARK_ENV=test jest --runInBand --watch",
-    "test:watch:all": "cross-env ARK_ENV=test jest --runInBand --watchAll",
-    "lint": "eslint ./ --fix"
-  },
-  "dependencies": {
-    "@arkecosystem/core-container": "~0.2",
-    "@arkecosystem/core-http-utils": "~0.2",
-    "@arkecosystem/crypto": "~0.2",
-    "elasticsearch": "^15.2.0",
-    "fs-extra": "^7.0.1",
-    "joi": "^14.3.0",
-    "lodash.first": "^3.0.0",
-    "lodash.get": "^4.4.2",
-    "lodash.last": "^3.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=10.x"
-  }
+    "name": "@arkecosystem/core-elasticsearch",
+    "version": "2.5.0-next.10",
+    "description": "A powerful Elasticsearch integration for ARK Core",
+    "license": "MIT",
+    "contributors": [
+        "Brian Faust <brian@ark.io>"
+    ],
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index",
+    "scripts": {
+        "build": "yarn clean && yarn compile",
+        "build:watch": "yarn clean && yarn compile -w",
+        "clean": "del dist",
+        "compile": "../../node_modules/typescript/bin/tsc",
+        "prepublishOnly": "yarn build"
+    },
+    "dependencies": {
+        "@arkecosystem/core-container": "^2.5.0-next.10",
+        "@arkecosystem/core-event-emitter": "^2.5.0-next.10",
+        "@arkecosystem/core-http-utils": "^2.5.0-next.10",
+        "@arkecosystem/core-interfaces": "^2.5.0-next.10",
+        "@arkecosystem/crypto": "^2.5.0-next.10",
+        "@elastic/elasticsearch": "^7.2.0",
+        "@hapi/boom": "^7.4.2",
+        "@hapi/joi": "^15.1.0",
+        "fs-extra": "^8.1.0"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^8.0.0",
+        "@types/hapi__boom": "^7.4.0",
+        "@types/hapi__joi": "^15.0.2"
+    },
+    "engines": {
+        "node": ">=10.x"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }
